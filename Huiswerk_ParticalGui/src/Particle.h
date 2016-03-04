@@ -21,3 +21,4 @@ public:
 
 	Parameters* param;
 };
+

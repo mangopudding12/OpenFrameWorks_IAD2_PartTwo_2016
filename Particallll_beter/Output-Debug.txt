@@ -1,0 +1,71 @@
+﻿'Particallll_beter_debug.exe' (Win32): Loaded 'C:\Users\Pikante Dipsausje\Documents\of_v0.9.2_vs_release\apps\OpenFrameWorks_IAD2_PartTwo_2016\Particallll_beter\bin\Particallll_beter_debug.exe'. Symbols loaded.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ntdll.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\kernel32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\KernelBase.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\msvcp140d.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\vcruntime140d.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ucrtbased.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\opengl32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\Users\Pikante Dipsausje\Documents\of_v0.9.2_vs_release\apps\OpenFrameWorks_IAD2_PartTwo_2016\Particallll_beter\bin\FreeImage.dll'. Module was built without symbols.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\user32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\gdi32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\advapi32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\shell32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\Users\Pikante Dipsausje\Documents\of_v0.9.2_vs_release\apps\OpenFrameWorks_IAD2_PartTwo_2016\Particallll_beter\bin\fmodex.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\crypt32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ws2_32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\IPHLPAPI.DLL'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\winmm.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\msvcrt.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\glu32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ddraw.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\sechost.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\rpcrt4.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\combase.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\shlwapi.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\wsock32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\msacm32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ole32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\msasn1.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\nsi.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\winnsi.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\winmmbase.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\dciman32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\cryptbase.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\sspicli.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\cfgmgr32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\devobj.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\bcryptprimitives.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\imm32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\msctf.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\nvinit.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\uxtheme.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\dwmapi.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\NV\ig75icd32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\ig75icd32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\igdusc32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\wtsapi32.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\version.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Unloaded 'C:\WINDOWS\SysWOW64\version.dll'
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\powrprof.dll'. Cannot find or open the PDB file.
+The thread 0x1a54 has exited with code 0 (0x0).
+The thread 0x4f0 has exited with code 0 (0x0).
+The thread 0x20a4 has exited with code 0 (0x0).
+The thread 0x1ca4 has exited with code 0 (0x0).
+The thread 0x1a94 has exited with code 0 (0x0).
+The thread 0xe04 has exited with code 0 (0x0).
+The thread 0xe74 has exited with code 0 (0x0).
+The thread 0x16dc has exited with code 0 (0x0).
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\version.dll'. Cannot find or open the PDB file.
+'Particallll_beter_debug.exe' (Win32): Unloaded 'C:\WINDOWS\SysWOW64\version.dll'
+'Particallll_beter_debug.exe' (Win32): Loaded 'C:\WINDOWS\SysWOW64\kernel.appcore.dll'. Cannot find or open the PDB file.
+The thread 0x2d0 has exited with code 0 (0x0).
+The thread 0x15a8 has exited with code 0 (0x0).
+The thread 0x1fa0 has exited with code 0 (0x0).
+The thread 0xc68 has exited with code 0 (0x0).
+The thread 0x1cbc has exited with code 0 (0x0).
+The thread 0x17fc has exited with code 0 (0x0).
+The thread 0x1854 has exited with code 0 (0x0).
+The thread 0x1a40 has exited with code 0 (0x0).
+The thread 0xb00 has exited with code 0 (0x0).
+The program '[1748] Particallll_beter_debug.exe' has exited with code 0 (0x0).
