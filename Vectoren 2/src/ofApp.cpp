@@ -29,6 +29,15 @@ void ofApp::update() {
 	if (ball.position.distance(ball2.position) < ball.radius * 2)
 	{
 		ball.speed *= -1;
+
+		if (ball.radius > 400)
+		{
+			ball.radius = 50;
+		}
+		else {
+			ball.radius += 1;
+		}
+		
 	}
 }
 

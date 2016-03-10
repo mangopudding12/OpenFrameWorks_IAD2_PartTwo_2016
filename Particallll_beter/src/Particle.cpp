@@ -20,6 +20,19 @@ void Particle::update(float elapsedTime)
 	if (!isAlive == true) return; 
 
 	speed.rotate(0, 0, param->rotate* elapsedTime);
+	
+	ofVec3f acceleration; 
+	ofVec3f distance = position - param->startingPoint; 
+	if (ofInRange(distance.length(), 0, param->radius))
+	{
+		distance.normalize(); 
+		acceleration += distance * param->force; 
+		acceleration.x = -distance.y * param->spinning; 
+		acceleration.y = distance.x * param->spinning; 
+	}
+
+	speed += acceleration * elapsedTime;
+	speed *= (1 - param->friction); 
 	position += speed * elapsedTime; 
 
 	age += elapsedTime;

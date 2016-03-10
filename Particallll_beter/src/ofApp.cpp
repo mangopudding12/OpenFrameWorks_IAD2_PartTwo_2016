@@ -22,16 +22,6 @@ void ofApp::update()
 	float elapsedTime = ofClamp(currentTime - time, 0, 0.1); // ofClamp een min en max zetten. 
 	time = currentTime; 
 
-
-	//if (particle.isAlive)
-	//{
-		//particle.update(elapsedTime); 
-	//}
-	//else {
-		//particle.setup(); 
-	//}
-
-
 	int i = 0; 
 	while (i < particles.size())
 	{
@@ -44,7 +34,9 @@ void ofApp::update()
 		}
 	}
 
-	if (particles.size() < 2000)
+	int newParticles = birthRate * elapsedTime; 
+    
+	for (int i = 0; i < newParticles; i++)
 	{
 		Particle newParticle(&parameters); 
 		newParticle.setup(); 

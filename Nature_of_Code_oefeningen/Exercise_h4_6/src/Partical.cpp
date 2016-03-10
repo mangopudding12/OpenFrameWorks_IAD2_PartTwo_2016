@@ -1,20 +1,20 @@
-#include "Partical.h"
+#include "Particle.h"
 
-Partical::Partical(ofVec2f location_)
+Partical::Partical(float x_, float y_, float r_)
 {
 	// Varible een waarde geven
 	accelaration.set(0, 0.05);
 	velocity.set(ofRandom(-1, 1), ofRandom(-2, 0));
-	location = location_;
+	location.set (x_,y_);
 	lifespan = 255.0;
-	radius = 12;
+	radius = r_;
 }
 
 
 void Partical::run()
 {
-	move(); 
-	display(); 
+	move();
+	display();
 }
 
 void Partical::move()
@@ -22,12 +22,11 @@ void Partical::move()
 	velocity += accelaration;
 	location += velocity;
 	lifespan -= 2;
-	
 }
 
 void Partical::display()
 {
-	ofSetColor(lifespan, 200, lifespan, lifespan);
+	ofSetColor(location.x - ofRandom(100, 500), lifespan - 50, location.y - 200, lifespan);
 	ofFill();
 
 	ofEllipse(location.x, location.y, radius, radius);

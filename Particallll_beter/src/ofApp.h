@@ -17,4 +17,6 @@ public:
 
 	//Particle particle = NULL; // zodat er niet meteen een wordt aangemaakt
 	vector <Particle> particles;
+
+	float birthRate = 1500; 
 };

@@ -13,8 +13,8 @@ Partical::Partical(ofVec2f location_)
 
 void Partical::run()
 {
-	move(); 
-	display(); 
+	move();
+	display();
 }
 
 void Partical::move()
@@ -22,12 +22,12 @@ void Partical::move()
 	velocity += accelaration;
 	location += velocity;
 	lifespan -= 2;
-	
+
 }
 
 void Partical::display()
 {
-	ofSetColor(lifespan, 200, lifespan, lifespan);
+	ofSetColor(location.x-ofRandom(100,500), lifespan-50, location.y-200, lifespan);
 	ofFill();
 
 	ofEllipse(location.x, location.y, radius, radius);

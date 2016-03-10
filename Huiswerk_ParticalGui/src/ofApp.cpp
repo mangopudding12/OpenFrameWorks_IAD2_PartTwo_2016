@@ -10,6 +10,11 @@ void ofApp::setup()
 	gui.add(lifeTime_.set("lifeTime", 1, 0, 5));
 	gui.add(rotate_.set("rotate", 1, 0, 360));
 	gui.add(maxSpeed_.set("maxSpeed", 1, 0, 500));
+	gui.add(size_.set("size", 1, 0, 15));
+	gui.add(friction_.set("friction", 0, 0, 0.1));
+	gui.add(spinning_.set("spinning", 500, 0, 2000));
+	gui.add(force_.set("force", 500, 0, 2000));
+
 	
 	gui.loadFromFile("settings.xml");
 
@@ -34,6 +39,10 @@ void ofApp::update()
 	parameters.lifeTime = lifeTime_;
 	parameters.rotate = rotate_;
 	parameters.maxSpeed = maxSpeed_;
+	parameters.size = size_;
+	parameters.friction = friction_;
+	parameters.spinning = spinning_;
+	parameters.force = force_;
 
 
 	float currentTime = ofGetElapsedTimef();
@@ -62,7 +71,9 @@ void ofApp::update()
 		}
 	}
 
-	if (particles.size() < 2000)
+	int newParticles = birthRate * elapsedTime;
+
+	for (int i = 0; i < newParticles; i++)
 	{
 		Particle newParticle(&parameters);
 		newParticle.setup();

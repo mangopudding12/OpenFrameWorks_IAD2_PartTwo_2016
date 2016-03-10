@@ -24,4 +24,11 @@ public:
 	ofParameter<float> lifeTime_; 
 	ofParameter<float> maxSpeed_; 
 	ofParameter<float> rotate_; 
+	ofParameter<float> size_;
+	ofParameter<float> force_;
+	ofParameter<float> spinning_;
+	ofParameter<float> friction_;
+
+
+	float birthRate = 1500;
 };

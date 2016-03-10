@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-
+	ofSetFrameRate(60);
 }
 
 //--------------------------------------------------------------
@@ -11,7 +11,7 @@ void ofApp::update()
 {
 	ofBackground(255);
 
-	location__.set(ofGetWidth() / 2, 30);
+	location__.set(ofGetWidth() / 2, 100);
 	Partical harry = Partical(location__); 
 	MoreParticles.push_back(harry);
 
@@ -21,20 +21,31 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	//vector<Partical>::iterator goedteller;
-	for (vector<Partical>::iterator goedteller = MoreParticles.begin(); goedteller != MoreParticles.end(); ++goedteller)
-	{
-		// Waarom in godsnaam hier een pionter ?? 
-		// Waarom een pionter van goedteller ?? 
-		(*goedteller).run();
 
-		if ((*goedteller).isDead() == true)
-		{
-			
-			// Hij geeft een fout melding en zegt iets moeilijks
-			cout << "hoi" << endl; 
-			MoreParticles.erase(goedteller);
-			cout << "hoi2" << endl;
+	// Manier 1 
+	//for (vector<Partical>::iterator it = MoreParticles.begin(); it != MoreParticles.end();)
+	//{
+	//	// (*it) = je maakt van een pionter weer een object
+	//	if ((*it).isDead() == true)
+	//	{		
+	//		it = MoreParticles.erase(it);
+	//	}
+	//	else {
+	//		(*it).run();
+	//		 it++; 
+	//	}
+	//}
+
+	// Manier 2 
+	int i = 0;
+	while (i < MoreParticles.size()) {
+		if (MoreParticles[i].isDead() == true) {
+			MoreParticles.erase(MoreParticles.begin() + i);
+		}
+		else {
+			MoreParticles[i].run();
+			i++;
 		}
 	}
+
 }
