@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxBox2d.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,16 +21,4 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		ofxBox2d box2d; 
-		vector <shared_ptr<ofxBox2dRect>> boxes;
-		//vector <shared_ptr<ofxBox2dRect>>circle;
-
-		vector <shared_ptr<ofxBox2dRect>> circle;
-		vector <ofPolyline> lines; 
-		vector <shared_ptr<ofxBox2dEdge>> edges; // lijnen
-
-		ofPolyline groundLine; // hiermee kan je lijn tekenen 
-		ofxBox2dEdge ground; // uiteinde van lijnen denk ik
-
-		bool remove = false; 
 };
