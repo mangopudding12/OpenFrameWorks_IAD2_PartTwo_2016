@@ -16,7 +16,6 @@ public:
 	ofxCvHaarFinder haarFinder;
 	ofImage image;
 
-	ofVideoGrabber grabber2;
 	ofxCvHaarFinder haarFinder2;
 	ofImage image2;
 
