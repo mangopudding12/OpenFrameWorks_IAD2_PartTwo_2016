@@ -10,7 +10,8 @@ public:
 
 	void setup(); 
 	void draw(); 
-
+	void move(); 
+	ofVec3f hoi; 
 	ofColor color; 
 
 private: 

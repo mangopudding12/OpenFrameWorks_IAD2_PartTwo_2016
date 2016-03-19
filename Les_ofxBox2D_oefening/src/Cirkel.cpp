@@ -12,15 +12,16 @@ void Cirkel::setup()
 	color.b = ofRandom(200, 255);
 }
 
+void Cirkel::move()
+{
+	
+}
+
 void Cirkel::draw()
 {
 	float radius = getRadius(); // opvragen uit de hoofdklas -> zit in ofxbox2d class
-	ofPoint position = getPosition(); 
-
-	ofFill(); 
-	ofSetColor(color); 
-	ofDrawCircle(position.x, position.y, radius);
-
+	ofPoint position = getPosition();
+	
 	ofSetColor(color, 100); 
-	ofDrawCircle(position.x, position.y, radius*1.2);
+	ofDrawCircle(position.x, position.y, 20);
 }

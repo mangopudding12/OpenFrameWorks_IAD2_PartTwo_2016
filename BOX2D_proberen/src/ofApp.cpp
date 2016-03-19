@@ -9,6 +9,7 @@ void ofApp::setup() {
 	ofDisableAntiAliasing();
 
 	box2d.init();
+	box2d.createBounds(); 
 	box2d.setGravity(0, 0);
 	box2d.setFPS(60.0);
 

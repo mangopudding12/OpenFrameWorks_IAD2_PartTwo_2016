@@ -41,7 +41,7 @@ void ofApp::keyPressed(int key)
 		// dichtheid -> stuiteren -> vrijving kracht
 		circle->setPhysics(3.0, 0.5, 0.1);
 		// vertel eerst welke wereld gebruiken we ? 
-		circle->setup(box2d.getWorld(), mouseX, mouseY, ofRandom(20, 60));
+		circle->setup(box2d.getWorld(), mouseX, mouseY, 20);
 		circle->addForce(ofVec2f(ofRandom(-30, 10), ofRandom(-30, -30)), 100); // 100 is een vermedigvuldigs factor. 
 		circles.push_back(circle);
 	}
