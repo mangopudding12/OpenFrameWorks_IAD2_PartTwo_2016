@@ -21,6 +21,4 @@ public:
 
 	// Zo maak je een vector aan doormiddel van new woord te gebruiken. 
 	vector <Partical>* particles; 
-	
-	
 };
