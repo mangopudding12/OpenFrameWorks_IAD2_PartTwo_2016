@@ -17,5 +17,5 @@ public:
 	void mousePressed(int x, int y, int button);
 
 	ofxBox2d box2d; // een wereld aanmaken.
-	vector <ofxBox2dCircle*> circles; // maakt een pionter naar de cirkel 
+	vector <Partical*> circles; // maakt een pionter naar de cirkel 
 };

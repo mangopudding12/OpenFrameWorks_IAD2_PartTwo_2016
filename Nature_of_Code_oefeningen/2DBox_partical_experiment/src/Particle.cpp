@@ -3,11 +3,12 @@
 Partical::Partical(float x_, float y_, float r_)
 {
 	// Varible een waarde geven
-	accelaration.set(0, 0.05);
-	velocity.set(ofRandom(-1, 1), ofRandom(-2, 0));
+	accelaration.set(0, 5);
+	velocity.set(ofRandom(-100, 100), ofRandom(-200, 0));
 	location.set(x_, y_);
 	lifespan = 255.0;
 	radius = r_;
+	
 }
 
 
@@ -19,17 +20,16 @@ void Partical::run()
 
 void Partical::move()
 {
-	velocity += accelaration;
-	location += velocity;
-	lifespan -= 2;
+	position = getPosition();
+	velocity -= accelaration;
+	position += velocity; 
 }
 
 void Partical::display()
 {
-	ofSetColor(location.x - ofRandom(100, 500), lifespan - 50, location.y - 200, lifespan);
+	ofSetColor(position.x - ofRandom(100, 500), lifespan - 50, position.y - 200, lifespan);
 	ofFill();
-
-	ofEllipse(location.x, location.y, radius, radius);
+	ofDrawCircle(position.x, position.y, radius);
 }
 
 bool Partical::isDead()

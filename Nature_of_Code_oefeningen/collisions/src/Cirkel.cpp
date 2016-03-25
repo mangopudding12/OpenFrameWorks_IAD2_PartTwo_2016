@@ -1,38 +1,53 @@
 #include "Cirkel.h"
 
-Partical::Partical(float x_, float y_, float r_, int wiebenik_, vector<Partical> tijdelijk_)
+Partical::Partical(float x_, float y_, float r_, int wiebenik_, vector<Partical>* tijdelijk_)
 {
 	// Varible een waarde geven
 	accelaration.set(0, 0.05);
-	velocity.set(ofRandom(-1, 1), ofRandom(-2, 0));
+	velocity.set(-1, -1);
 	location.set(x_, y_);
 	lifespan = 255.0;
 	radius = r_;
 	wiebenik = wiebenik_; 
-	andereparticles = tijdelijk_;
+	spring = 0.5;
+	ofSetColor(location.x - ofRandom(100, 500), ofRandom(0, 255), ofRandom(0, 255));
+
+	andereparticless = tijdelijk_; 
+	gravity.set(0.995, 0.995);
 }
 
 void Partical::botsingdetection()
 {
-	for (int i = wiebenik + 1; i < andereparticles.size(); i++)
+	for (int i = wiebenik + 1; i < andereparticless->size(); i++)
 	{
-		// Hey Edwin
-		// Het is echt super raar deze for loop wordt gewoon niet door gelopen
-		// Hij wordt niet gebruikt en ik snap niet waarom 
-		// deze forloop moet juist mijn collision checken.
-		// Moet ik met pionter gaan werken misschien ?? 
-		// en hoe eigenijk :O 
-
 		// afstand berekenen tussen de particles
-		float dx = andereparticles[i].location.x - location.x; 
-		float dy = andereparticles[i].location.y - location.y; 
+		float dx = andereparticless->at(i).location.x - location.x; 
+		// bij pointer geen haakje [] maar at(i) om naar een locatie te wijzen. 
+		float dy = andereparticless->at(i).location.y - location.y; 
 		float afstand = sqrt(dx*dx + dy*dy);
-		
+		float minDist = (andereparticless->at(i).radius / 2 + radius / 2); 
 
 		// Als dit waar is dan raken de cirkels elkaar aan. 
-		if (afstand < (andereparticles[i].radius / 2) + (radius / 2))
+		if (afstand < minDist)
 		{
-			cout << "collision" << endl;
+			//ofSetColor(location.x - ofRandom(100, 500), ofRandom(0, 255), ofRandom(0, 255));
+			float angle = atan2(dy, dx);
+			float targetX = location.x + cos(angle) * minDist;
+			float targetY = location.y + sin(angle) * minDist;
+			float ax = (targetX - andereparticless->at(i).location.x) * spring;
+			float ay = (targetY - andereparticless->at(i).location.y) * spring;
+
+			velocity.y -= ay;
+			andereparticless->at(i).velocity.y += ay;
+			velocity.x -= ax;
+			andereparticless->at(i).velocity.x += ax;
+			velocity *= gravity;  // uiteindelijk komen ze tot stilstand
+			andereparticless->at(i).velocity *= gravity; // uiteindelijke komen ze tot stilstand
+
+
+			//cout << velocity << endl; 
+			andereparticless->at(i).velocity.limit(4);
+			velocity.limit(4);
 		}
 	}
 }
@@ -74,11 +89,15 @@ void Partical::move()
 	//lifespan -= 2;
 }
 
+void Partical::displayy(float mouseX_, float mouseY_)
+{
+	location.x = mouseX_; 
+	location.y = mouseY_;
+}
+
 void Partical::display()
 {
-	ofSetColor(location.x - ofRandom(100, 500), lifespan - 50, location.y - 200, lifespan);
 	ofFill();
-
 	ofEllipse(location.x, location.y, radius, radius);
 }
 

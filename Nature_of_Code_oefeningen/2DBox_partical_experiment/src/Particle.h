@@ -12,7 +12,7 @@ public:
 	void display();
 	bool isDead();
 
-
+	ofPoint position;
 	ofVec2f location;
 	ofVec2f accelaration;
 	ofVec2f velocity;

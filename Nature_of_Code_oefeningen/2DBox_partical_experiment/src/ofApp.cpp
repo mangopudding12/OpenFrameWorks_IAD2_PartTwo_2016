@@ -18,6 +18,12 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
+	
+	for (int i = 0; i < circles.size(); i++)
+	{
+		// circles is een pionter , box2d hoef je zelf niet te tekenen alleen bij boundaries.
+		circles[i]->move();
+	}
 	box2d.update(); // reken alles door 
 }
 
@@ -27,7 +33,8 @@ void ofApp::draw()
 	for (int i = 0; i < circles.size(); i++)
 	{
 		// circles is een pionter , box2d hoef je zelf niet te tekenen alleen bij boundaries.
-		circles[i]->draw();
+		
+		circles[i]->display();
 	}
 }
 
@@ -36,12 +43,9 @@ void ofApp::keyPressed(int key)
 {
 	if (key == 'h')
 	{
-		
-
-		
-		ofxBox2dCircle* circle = new Partical(ofGetWidth()/2,ofGetHeight()/2,50);
-		circle->setPhysics(3.0, 0.5, 0.1);
-		circle->setup(box2d.getWorld(), mouseX, mouseY, 200);
+		Partical* circle = new Partical(ofGetWidth()/2,ofGetHeight()/2,50);
+		circle->setPhysics(0.3, 0.5, 0.1);
+		circle->setup(box2d.getWorld(), mouseX, mouseY, circle->radius);
 		circles.push_back(circle);
 	}
 	else if (key == OF_KEY_RETURN)
