@@ -14,14 +14,14 @@ void ofApp::setup()
 		Partical tijdelijk = Partical(ofGetWidth() / 2, 300, 30, k, particles);
 		particles->push_back(tijdelijk);
 	}
-	
-	linee = Line(200.0,400.0,400.0,400.0);
+
+	linee = Line(200.0, 400.0, 400.0, 400.0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	
+
 
 	for (int k = 0; k < particles->size(); k++)
 	{
@@ -32,34 +32,34 @@ void ofApp::update()
 		particles->at(k).move();
 		particles->at(k).botsingdetection();
 		particles->at(k).Schermbounds();
-
+		
+		// Collision line cirkel 
 		if (hit == true)
 		{
 			if (particles->at(k).radius < 70)
 			{
-				particles->at(k).radius += 1;
+				collisionLineCirkel(k); 
 			}
-		}
+		}	
 	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	
-	
-	
-	
-
 	linee.display();
 	ofPopMatrix();
-	
+
 	ofColor(200, 200, 150);
 	for (int k = 0; k < particles->size(); k++)
 	{
 		particles->at(k).display();
 	}
+}
 
+// ------------------- Hierin staat informatie over collision line cirkel ----
+void ofApp::collisionLineCirkel(int k_)
+{	
 	
 }
 
@@ -67,10 +67,19 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button)
 {
-	
+
 }
 
 void ofApp::mouseReleased(int x, int y, int button)
 {
+
+}
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::keyReleased(int key){
 
 }
