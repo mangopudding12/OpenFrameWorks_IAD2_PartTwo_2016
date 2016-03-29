@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include "Cirkel.h"
 #include "Line.h"
+#include "ParticleSystem.h"
 
 class ofApp : public ofBaseApp {
 
@@ -20,7 +21,8 @@ public:
 	int hoeveelheid;
 
 	// Zo maak je een vector aan doormiddel van new woord te gebruiken. 
-	vector <Partical>* particles;
+	//vector <Partical>* particles;
+	vector <ParticleSystem>* System; 
+
 	Line linee;
-	bool hit;
 };

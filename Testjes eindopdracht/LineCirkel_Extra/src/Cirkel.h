@@ -14,7 +14,7 @@ public:
 	void Schermbounds();
 	void botsingdetection();
 
-
+	bool isDead();
 	ofVec2f location;
 	ofVec2f accelaration;
 	ofVec2f velocity;
@@ -22,6 +22,7 @@ public:
 	float radius;
 	int wiebenik;
 	float spring;
+	float lifespan;
 
 	vector<Partical>* andereparticless;
 

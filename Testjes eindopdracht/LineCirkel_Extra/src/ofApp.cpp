@@ -6,14 +6,11 @@ void ofApp::setup()
 	ofBackground(255);
 	ofSetFrameRate(60);
 
-	hoeveelheid = 300;
-	particles = new vector<Partical>;
+	System = new vector<ParticleSystem>;
 
-	for (int k = 0; k < hoeveelheid; k++)
-	{
-		Partical tijdelijk = Partical(ofGetWidth() / 2, 300, 30, k, particles);
-		particles->push_back(tijdelijk);
-	}
+	ParticleSystem newSystem;
+	newSystem = ParticleSystem(100, 100, 25);
+	System->push_back(newSystem);
 
 	linee = Line(200.0, 400.0, 400.0, 400.0);
 }
@@ -21,26 +18,20 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-
-
-	for (int k = 0; k < particles->size(); k++)
+	for (int k = 0; k < System->size(); k++)
 	{
-		hit = linee.lineCircle(linee.locationpoint1.x, linee.locationpoint1.y,
-			linee.locationpoint2.x, linee.locationpoint2.y, particles->at(k).location.x
-			, particles->at(k).location.y, particles->at(k).radius);
+		System->at(k).move(linee); 
+		System->at(k).Dead();
 
-		particles->at(k).move();
-		particles->at(k).botsingdetection();
-		particles->at(k).Schermbounds();
-		
-		// Collision line cirkel 
-		if (hit == true)
+		if (System->at(k).maakNieuwe == true)
 		{
-			if (particles->at(k).radius < 70)
-			{
-				collisionLineCirkel(k); 
-			}
-		}	
+			ParticleSystem newSystem;
+			newSystem = ParticleSystem(ofRandom(-50, 600), ofRandom(-50, 400), ofRandom(2, 10));
+			System->push_back(newSystem);
+
+			System->at(k).intact = true;
+			System->at(k).maakNieuwe = false;
+		}
 	}
 }
 
@@ -48,12 +39,11 @@ void ofApp::update()
 void ofApp::draw()
 {
 	linee.display();
-	ofPopMatrix();
-
+	
 	ofColor(200, 200, 150);
-	for (int k = 0; k < particles->size(); k++)
+	for (int i = 0; i < System->size(); i++)
 	{
-		particles->at(k).display();
+		System->at(i).display();
 	}
 }
 
@@ -67,6 +57,10 @@ void ofApp::collisionLineCirkel(int k_)
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button)
 {
+	for (int i = 0; i < System->size(); i++)
+	{
+		System->at(i).shatter();
+	}
 
 }
 

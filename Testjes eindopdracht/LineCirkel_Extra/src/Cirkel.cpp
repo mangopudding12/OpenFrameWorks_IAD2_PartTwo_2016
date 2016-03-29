@@ -12,7 +12,7 @@ Partical::Partical(float x_, float y_, float r_, int wiebenik_, vector<Partical>
 	radius = r_;
 	wiebenik = wiebenik_;
 	spring = 0.5;
-
+	lifespan = 255; 
 
 	andereparticless = tijdelijk_;
 	gravity.set(0.995, 0.995);
@@ -95,3 +95,13 @@ void Partical::display()
 	ofEllipse(location.x, location.y, radius, radius);
 }
 
+bool Partical::isDead()
+{
+	if (lifespan < 0.0)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}

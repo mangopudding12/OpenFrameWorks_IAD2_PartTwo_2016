@@ -98,4 +98,3 @@ void Line::display()
 	ofColor(200, 100, 60);
 	ofLine(locationpoint1.x, locationpoint1.y, locationpoint2.x, locationpoint2.y);
 }
-
