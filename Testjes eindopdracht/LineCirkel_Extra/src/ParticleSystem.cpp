@@ -50,7 +50,20 @@ void ParticleSystem::move(Line linee)
 					{
 						Moreparticles->at(i).radius++;
 					}
+					LineMove = true;
+
+					
+					if (Moreparticles->size() > 10)
+					{
+							Moreparticles->erase(Moreparticles->begin()+i);
+					}
 				}
+			}else {
+					if (linee.stopmoving == true)
+					{
+						LineMove = false;
+						linee.stopmoving = false;
+					}
 			}
 
 			Moreparticles->at(i).move(); // Laat particle bewegen
@@ -70,13 +83,11 @@ void ParticleSystem::Dead()
 {
 	for (int i = 0; i < Moreparticles->size(); i++)
 	{
-		if (Moreparticles->at(i).isDead() == true)
+		if (hit == true && LineMove == true)
 		{
-			Moreparticles->erase(Moreparticles->begin() + i);
-
-			if (Moreparticles->size() == 0)
+			if (Moreparticles->size() > 10)
 			{
-				maakNieuwe = true;
+				Moreparticles->erase(Moreparticles->begin());
 			}
 		}
 	}

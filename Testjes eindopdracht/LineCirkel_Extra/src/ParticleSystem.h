@@ -15,9 +15,11 @@ public:
 	void move(Line linee);
 	void shatter();
 	void Dead();
-	
+	bool doodmachine = false; 
+
 	vector <Partical>* Moreparticles;
 
+	bool LineMove = false;
 	int rows = 20;
 	int cols = 20;
 	bool intact = true;

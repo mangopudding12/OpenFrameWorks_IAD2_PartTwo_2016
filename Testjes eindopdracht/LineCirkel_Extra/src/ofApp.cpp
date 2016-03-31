@@ -12,7 +12,7 @@ void ofApp::setup()
 	newSystem = ParticleSystem(100, 100, 25);
 	System->push_back(newSystem);
 
-	linee = Line(200.0, 400.0, 400.0, 400.0);
+	linee = Line(200.0, 400.0, 200.0, 200.0);
 }
 
 //--------------------------------------------------------------
@@ -20,18 +20,20 @@ void ofApp::update()
 {
 	for (int k = 0; k < System->size(); k++)
 	{
-		System->at(k).move(linee); 
-		System->at(k).Dead();
-
-		if (System->at(k).maakNieuwe == true)
+		
+		if (System->at(k).LineMove == true)
 		{
-			ParticleSystem newSystem;
-			newSystem = ParticleSystem(ofRandom(-50, 600), ofRandom(-50, 400), ofRandom(2, 10));
-			System->push_back(newSystem);
-
-			System->at(k).intact = true;
-			System->at(k).maakNieuwe = false;
+			cout << "hoi" << endl; 
+			System->at(k).doodmachine = true; 
+			System->at(k).Dead();
 		}
+		else {
+			System->at(k).doodmachine = false; 
+		}
+
+		System->at(k).move(linee);
+		linee.move(System->at(k).LineMove);
+
 	}
 }
 
@@ -62,6 +64,8 @@ void ofApp::mousePressed(int x, int y, int button)
 		System->at(i).shatter();
 	}
 
+	aanuit = false; 
+
 }
 
 void ofApp::mouseReleased(int x, int y, int button)
@@ -69,8 +73,26 @@ void ofApp::mouseReleased(int x, int y, int button)
 
 }
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void ofApp::keyPressed(int key)
+{
+	if (aanuit == false)
+	{
+		int rows = ofRandom(3, 8);
+		int cols = ofRandom(4, 10);
+		float y2_ = ofRandom(10, 250);
+		float x2_ = ofRandom(20, 850);
+		float r_ = ofRandom(5, 45);
 
+
+		for (int i = 0; i < rows*cols; i++)
+		{
+			ofColor(90, 90, 9);
+			System->at(0).addParticle(x2_ + (i%cols)*r_, y2_ + (i / rows)*r_, r_, i);
+		}
+
+		System->at(0).intact = true;
+		aanuit = true; 
+	}
 }
 
 //--------------------------------------------------------------

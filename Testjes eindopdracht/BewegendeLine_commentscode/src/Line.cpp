@@ -1,13 +1,15 @@
 #include "Line.h"
 
+// ----------------- Constructor -----------------------
 Line::Line(float x1_, float x2_, float y1_, float y2_)
 {
 	locationpoint1.set(x1_, y1_);
 	locationpoint2.set(x2_, y2_);
-	accelaration.set(0, 0.5);
+	accelaration.set(0, 1);
 	ofSetLineWidth(8);
 }
 
+// --------------------- Collision detection Line en Cirkels ----------------------
 bool Line::lineCircle(float x1, float y1, float x2, float y2, float x_, float y_, float r_)
 {
 	// is either end INSIDE the circle?
@@ -18,16 +20,16 @@ bool Line::lineCircle(float x1, float y1, float x2, float y2, float x_, float y_
 
 
 	// get length of the line
-	distX = x1 - x2;
-	distY = y1 - y2;
-	len = sqrt((distX*distX) + (distY*distY));
+	float distX = x1 - x2;
+	float distY = y1 - y2;
+	float len = sqrt((distX*distX) + (distY*distY));
 
 	// get dot product of the line and circle
-	dot = (((x_ - x1)*(x2 - x1)) + ((y_ - y1)*(y2 - y1))) / pow(len, 2);
+	float dot = (((x_ - x1)*(x2 - x1)) + ((y_ - y1)*(y2 - y1))) / pow(len, 2);
 
 	// find the closest point on the line
-	closestX = x1 + (dot * (x2 - x1));
-	closestY = y1 + (dot * (y2 - y1));
+	float closestX = x1 + (dot * (x2 - x1));
+	float closestY = y1 + (dot * (y2 - y1));
 
 	// is this point actually on the line segment?
 	// if so keep going, but if not, return false
@@ -42,17 +44,18 @@ bool Line::lineCircle(float x1, float y1, float x2, float y2, float x_, float y_
 	// get distance to closest point
 	distX = closestX - x_;
 	distY = closestY - y_;
-	distance = sqrt((distX*distX) + (distY*distY));
+	float distance = sqrt((distX*distX) + (distY*distY));
 
-	if (distance <= r_) 
+	if (distance <= r_)
 	{
-		return true; 
+		return true;
 	}
 	else {
 		return false;
 	}
 }
 
+// ---------------------- Waar is de Cirkel in verhouding met de line ? -------------
 bool Line::pointCircle(float px, float py, float x_, float y_, float r_)
 {
 	// get distance between the point and circle's center
@@ -69,6 +72,7 @@ bool Line::pointCircle(float px, float py, float x_, float y_, float r_)
 	return false;
 }
 
+// ------------------------- Kijk waar de cirkel de line raakt of niet raakt ---------
 bool Line::linePoint(float x1, float y1, float x2, float y2, float px, float py)
 {
 	// get distance from the point to the two ends of the line
@@ -92,13 +96,14 @@ bool Line::linePoint(float x1, float y1, float x2, float y2, float px, float py)
 	return false;
 }
 
-
+// ---------------- Afbeelden -----------------------------
 void Line::display()
 {
 	ofColor(200, 100, 60);
 	ofLine(locationpoint1.x, locationpoint1.y, locationpoint2.x, locationpoint2.y);
 }
 
+// -------------------------- Move Function ----------------------------------- 
 void Line::move(bool bewegenaan)
 {
 	if (bewegenaan == true)
@@ -108,9 +113,14 @@ void Line::move(bool bewegenaan)
 
 		if (locationpoint1.y >= ofGetHeight())
 		{
-			stopmoving = true; 
-			locationpoint1.y = 200; 
-			locationpoint2.y = 200;
+			// Stopmoving op true zorgt ervoor dat de line ophoud met bewegen. 
+			stopmoving = true;
+			locationpoint1.y = 400;
+			locationpoint2.y = 400;
 		}
+	} else {
+		// Zet stopmoving weer op false zodat wanneer line weer
+		// wordt aangeraakt door een cirkel dat er weer een collision ontstaat.
+		stopmoving = false;
 	}
 }
