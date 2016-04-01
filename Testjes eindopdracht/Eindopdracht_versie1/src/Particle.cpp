@@ -95,6 +95,7 @@ void Particle::move()
 {
 	velocity += accelaration;
 	location += velocity;
+	lifespan -= 2;
 }
 
 // -------------------------- Afbeelden Cirkels --------------------------------
@@ -102,17 +103,4 @@ void Particle::display()
 {
 	ofFill();
 	ofEllipse(location.x, location.y, radius, radius);
-}
-
-// --------------------------- Als ze dood zijn dan -----------------------------
-// Deze functie wordt nog niet actief gebruikt want ze gaan niet dood door lifespan.
-bool Particle::isDead()
-{
-	if (lifespan < 0.0)
-	{
-		return true;
-	}
-	else {
-		return false;
-	}
 }

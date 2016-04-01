@@ -3,6 +3,7 @@
 #include "Line.h"
 #include "ParticleSystem.h"
 #include "Particle.h"
+#include "AchtergrondParticleSystem.h"
 
 class ofApp : public ofBaseApp {
 
@@ -21,15 +22,18 @@ public:
 	Line linee;
 
 	// Zo maak je een vector aan doormiddel van new woord te gebruiken. 
-	//vector <Partical>* particles;
 	vector <ParticleSystem>* System;
+	vector <AchtergrondParticleSystem> AchtergrondSystem;
+
+	// Voor de achtergrondParticle locatie vector
+	ofVec2f location_;
 
 	// int, float, boolean enzo. 
 	int hoeveelheid;
 	bool aanuit = true;
 	bool line_bewegen_uit = false;
-	int fase_code; 
+	int fase_code;
 
-	bool LegeVectorVullen = false; 
+	bool LegeVectorVullen = false;
 	ofTrueTypeFont  begintekst;
 };

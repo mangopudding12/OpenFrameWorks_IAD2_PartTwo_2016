@@ -60,7 +60,7 @@ void ParticleSystem::move(Line line_)
 
 					line_move = true;
 
-					if (Moreparticles->size() > 1)
+					if (Moreparticles->size() > 10)
 					{
 						Moreparticles->erase(Moreparticles->begin() + i);
 					}
@@ -86,19 +86,3 @@ void ParticleSystem::shatter()
 		intact = false;
 	}
 }
-
-// ------------------- verwijder het hele particle system --------------------- 
-// wordt niet gebruikt !!! 
-//void ParticleSystem::Dead()
-//{
-//for (int i = 0; i < Moreparticles->size(); i++)
-//{
-//if (hit == true && line_move == true)
-//{
-//if (Moreparticles->size() > 10)
-//{
-//Moreparticles->erase(Moreparticles->begin());
-//}
-//}
-//}
-//}

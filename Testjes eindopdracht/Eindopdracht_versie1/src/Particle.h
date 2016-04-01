@@ -15,8 +15,7 @@ public:
 	void display();
 	void Schermbounds();
 	void botsingdetection();
-	bool isDead();
-
+	
 
 	// Pionter from a vector 
 	vector<Particle>* andereparticles;

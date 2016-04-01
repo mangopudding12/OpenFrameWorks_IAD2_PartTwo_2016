@@ -9,24 +9,48 @@ void ofApp::setup()
 	// Zet startscherm aan
 	fase_code = 0;
 
+	// TekstBegin 
 	begintekst.load("Zenfyrkalt.ttf", 30, true, true);
 	begintekst.setLineHeight(18.0f);
 	begintekst.setLetterSpacing(1.037);
 
+
+	// Achtergrond nummer 1 aanmaken 
+	location_.set(ofGetWidth()/10,ofGetHeight()/9);
+
+	AchtergrondParticleSystem newachtergrond1;
+	newachtergrond1 = AchtergrondParticleSystem(location_);
+	AchtergrondSystem.push_back(newachtergrond1);
+
+	// Achtergrond nummer 2 aanmaken 
+	location_.set((ofGetWidth() / 10)*9, ofGetHeight() / 9);
+
+	AchtergrondParticleSystem newachtergrond2;
+	newachtergrond2 = AchtergrondParticleSystem(location_);
+	AchtergrondSystem.push_back(newachtergrond2);
+
+
 	// Ruimte in geheugen maken voor een vector 
 	System = new vector<ParticleSystem>;
 
-	// Stop in vector System als het eerst vierkante particleSystem 
-	
-
 	// Maak 1 line aan 
-	linee = Line(ofGetWidth()/4, (ofGetWidth()/4)*3, 400.0, 400.0);
+	linee = Line(ofGetWidth() / 4, (ofGetWidth() / 4) * 3, 450.0, 450.0);
 }
 
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
+
+	// Aanuit zetten van achtergrondParticles
+	if (aanuit == true)
+	{
+		for (int i = 0; i < AchtergrondSystem.size(); i++)
+		{
+			AchtergrondSystem[i].addParticle();
+		}
+	}
+
 
 	// Loop door fucntions heen 
 	for (int k = 0; k < System->size(); k++)
@@ -50,8 +74,8 @@ void ofApp::draw()
 	if (fase_code == 0)
 	{
 		ofSetColor(245, 58, 135);
-		begintekst.drawString("Laat een druppel vallen", ofGetWidth()/7, 300);
-	}  
+		begintekst.drawString("Laat een druppel vallen", ofGetWidth() / 7, 300);
+	}
 
 	ofSetColor(200, 20, 200);
 	linee.display();
@@ -59,6 +83,14 @@ void ofApp::draw()
 	for (int i = 0; i < System->size(); i++)
 	{
 		System->at(i).display();
+	}
+
+	if (aanuit == true)
+	{
+		for (int i = 0; i < AchtergrondSystem.size(); i++)
+		{
+			AchtergrondSystem[i].run();
+		}
 	}
 }
 
@@ -71,7 +103,24 @@ void ofApp::mousePressed(int x, int y, int button)
 		System->at(i).shatter();
 	}
 
-	aanuit = false;
+	// Zo gaat niet achtergrond particles uit wanneer je op muis klikt
+	// Eerst moet je de vierkante particle aanmaken
+	if (LegeVectorVullen == true)
+	{
+		aanuit = false;
+
+		// Morgen moet hier nog dingen aanpassen 
+		// zodat elke keer als je klikt er een nieuw achterparticle system 
+		// ontstaat tot een bepaalt aantal
+		// daarna wordt die gereset waardoor ??? de line ?? 
+		// of door collision met line of gewoon random ?? 
+		// Maak een int die steeds positie in location stond om zo te veranderen.
+		location_.set((ofGetWidth() / 10) * 7, ofGetHeight() / 7);
+
+		AchtergrondParticleSystem newachtergrond2;
+		newachtergrond2 = AchtergrondParticleSystem(location_);
+		AchtergrondSystem.push_back(newachtergrond2);
+	}
 
 	// De line mag weer bewegen als die geactiveerd is 
 	line_bewegen_uit = false;
@@ -114,8 +163,8 @@ void ofApp::keyPressed(int key)
 			{
 				int rows = ofRandom(2, 9);
 				int cols = ofRandom(2, 9);
-				float y2_ = ofRandom(5,200);
-				float x2_ = ofRandom(ofGetWidth()/7,(ofGetWidth()/7)*5);
+				float y2_ = ofRandom(5, 200);
+				float x2_ = ofRandom(ofGetWidth() / 7, (ofGetWidth() / 7) * 5);
 				float r_ = ofRandom(15, 35);
 
 
@@ -133,14 +182,14 @@ void ofApp::keyPressed(int key)
 		if (key == 'a')
 		{
 			ParticleSystem newSystem;
-			newSystem = ParticleSystem((ofGetWidth()/2)-95,ofGetHeight()/9, 15);
+			newSystem = ParticleSystem((ofGetWidth() / 2) - 95, ofGetHeight() / 9, 15);
 			System->push_back(newSystem);
-			LegeVectorVullen = true; 
+			LegeVectorVullen = true;
 
 			// De begin tekst moet hier op 1 worden gezet zodat die uit gaat.
 			if (fase_code == 0)
 			{
-				fase_code = 1; 
+				fase_code = 1;
 				ofBackground(255);
 			}
 		}

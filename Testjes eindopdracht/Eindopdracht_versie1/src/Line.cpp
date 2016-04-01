@@ -38,8 +38,8 @@ bool Line::lineCircle(float x1, float y1, float x2, float y2, float x_, float y_
 
 	// optionally, draw a circle at the closest
 	// point on the line
-	ofColor(90, 90, 0);
-	ofEllipse(closestX, closestY, 20, 20);
+	//ofColor(90, 90, 0);
+	//ofEllipse(closestX, closestY, 20, 20);
 
 	// get distance to closest point
 	distX = closestX - x_;

@@ -16,7 +16,6 @@ public:
 	void display();
 	void move(Line line_);
 	void shatter();
-	//void Dead();
 
 	// Pionter form a vector 
 	vector <Particle>* Moreparticles;
