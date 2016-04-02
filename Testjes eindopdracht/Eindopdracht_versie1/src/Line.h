@@ -27,6 +27,8 @@ public:
 	// Boolean, int, float enzo.
 	bool stopmoving = false;
 
+	// Afbeeldingen 
+	ofImage zout;
 
 private:
 };

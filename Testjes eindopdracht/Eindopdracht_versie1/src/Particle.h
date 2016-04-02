@@ -32,6 +32,8 @@ public:
 	float spring;
 	float lifespan;
 
+	// Afbeeldingen 
+	ofImage slak;
 
 private:
 };

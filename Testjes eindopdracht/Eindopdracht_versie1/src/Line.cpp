@@ -7,6 +7,10 @@ Line::Line(float x1_, float x2_, float y1_, float y2_)
 	locationpoint2.set(x2_, y2_);
 	accelaration.set(0, 1);
 	ofSetLineWidth(8);
+
+	// Afbeeldingen inladen
+	zout.load("zout.png");
+	zout.resize(zout.getWidth() / 1.7, zout.getHeight() / 1.7);
 }
 
 // --------------------- Collision detection Line en Cirkels ----------------------
@@ -99,8 +103,9 @@ bool Line::linePoint(float x1, float y1, float x2, float y2, float px, float py)
 // ---------------- Afbeelden -----------------------------
 void Line::display()
 {
-	//ofColor(255, 0, 0);
+	
 	ofLine(locationpoint1.x, locationpoint1.y, locationpoint2.x, locationpoint2.y);
+	zout.draw(locationpoint1.x-30, locationpoint1.y-40);
 }
 
 // -------------------------- Move Function ----------------------------------- 

@@ -13,9 +13,12 @@ public:
 
 	// Functions 
 	void addParticle(float x2_, float y2_, float r2_, float k_);
+	float kleur(float kleur1);
 	void display();
 	void move(Line line_);
 	void shatter();
+
+	float kleurr1;
 
 	// Pionter form a vector 
 	vector <Particle>* Moreparticles;
@@ -27,8 +30,8 @@ public:
 	bool hitactiveren = false;
 
 	// int, float enzo. 
-	int rows = 15;
-	int cols = 15;
+	int rows = 8;
+	int cols = 4;
 
 
 private:

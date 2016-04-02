@@ -36,4 +36,7 @@ public:
 
 	bool LegeVectorVullen = false;
 	ofTrueTypeFont  begintekst;
+
+	int getal;
+	
 };

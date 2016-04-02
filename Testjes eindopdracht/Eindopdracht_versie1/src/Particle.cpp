@@ -21,6 +21,10 @@ Particle::Particle(float x_, float y_, float r_, int wiebenik_, vector<Particle>
 	// gesteld met andereparticles zodat we de collision tussen als cirkels 
 	// kunnen berekenen en detecteren. 
 	andereparticles = tijdelijk_;
+
+	// Afbeelding inladen
+	slak.load("slak.png");
+	
 }
 
 // --------------------------- Collisions tussen Cirkels -----------------------
@@ -66,15 +70,15 @@ void Particle::botsingdetection()
 void Particle::Schermbounds()
 {
 	// links
-	if (location.x < (radius / 2))
+	if (location.x < (radius / 1.3))
 	{
-		location.x = (radius / 2);
+		location.x = (radius / 1.3);
 	}
 
 	// rechts 
-	if (location.x > ofGetWidth() - (radius / 2))
+	if (location.x > ofGetWidth() - (radius / 1.3))
 	{
-		location.x = ofGetWidth() - (radius / 2);
+		location.x = ofGetWidth() - (radius / 1.3);
 	}
 
 	// bovenkant 
@@ -84,9 +88,9 @@ void Particle::Schermbounds()
 	}
 
 	// grond
-	if (location.y > ofGetHeight() - (radius / 2))
+	if (location.y > ofGetHeight() - (radius+10))
 	{
-		location.y = ofGetHeight() - (radius / 2);
+		location.y = ofGetHeight() - (radius + 10);
 	}
 }
 
@@ -101,6 +105,6 @@ void Particle::move()
 // -------------------------- Afbeelden Cirkels --------------------------------
 void Particle::display()
 {
-	ofFill();
 	ofEllipse(location.x, location.y, radius, radius);
+	slak.draw(location.x - 24, location.y - 14);
 }

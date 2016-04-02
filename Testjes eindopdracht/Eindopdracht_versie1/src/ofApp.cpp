@@ -6,6 +6,8 @@ void ofApp::setup()
 	ofBackground(255);
 	ofSetFrameRate(60);
 
+	getal = 300; 
+
 	// Zet startscherm aan
 	fase_code = 0;
 
@@ -35,12 +37,24 @@ void ofApp::setup()
 
 	// Maak 1 line aan 
 	linee = Line(ofGetWidth() / 4, (ofGetWidth() / 4) * 3, 450.0, 450.0);
+
+	
 }
 
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
+	if (aanuit == false)
+	{
+		if (getal > 0)
+		{
+			getal -= 2;
+		}
+	}
+	else {
+		getal = 300;
+	}
 
 	// Aanuit zetten van achtergrondParticles
 	if (aanuit == true)
@@ -77,13 +91,14 @@ void ofApp::draw()
 		begintekst.drawString("Laat een druppel vallen", ofGetWidth() / 7, 300);
 	}
 
-	ofSetColor(200, 20, 200);
-	linee.display();
-
 	for (int i = 0; i < System->size(); i++)
 	{
+		ofSetColor(245 - getal,205,245);
 		System->at(i).display();
 	}
+
+	ofSetColor(255, 255, 255);
+	linee.display();
 
 	if (aanuit == true)
 	{
@@ -115,11 +130,11 @@ void ofApp::mousePressed(int x, int y, int button)
 		// daarna wordt die gereset waardoor ??? de line ?? 
 		// of door collision met line of gewoon random ?? 
 		// Maak een int die steeds positie in location stond om zo te veranderen.
-		location_.set((ofGetWidth() / 10) * 7, ofGetHeight() / 7);
+		/*location_.set((ofGetWidth() / 10) * 7, ofGetHeight() / 7);
 
 		AchtergrondParticleSystem newachtergrond2;
 		newachtergrond2 = AchtergrondParticleSystem(location_);
-		AchtergrondSystem.push_back(newachtergrond2);
+		AchtergrondSystem.push_back(newachtergrond2);*/
 	}
 
 	// De line mag weer bewegen als die geactiveerd is 
@@ -165,7 +180,7 @@ void ofApp::keyPressed(int key)
 				int cols = ofRandom(2, 9);
 				float y2_ = ofRandom(5, 200);
 				float x2_ = ofRandom(ofGetWidth() / 7, (ofGetWidth() / 7) * 5);
-				float r_ = ofRandom(15, 35);
+				float r_ = ofRandom(15, 40);
 
 
 				for (int i = 0; i < rows*cols; i++)
@@ -182,7 +197,7 @@ void ofApp::keyPressed(int key)
 		if (key == 'a')
 		{
 			ParticleSystem newSystem;
-			newSystem = ParticleSystem((ofGetWidth() / 2) - 95, ofGetHeight() / 9, 15);
+			newSystem = ParticleSystem((ofGetWidth() / 2) - 95, ofGetHeight() / 9, 25);
 			System->push_back(newSystem);
 			LegeVectorVullen = true;
 
