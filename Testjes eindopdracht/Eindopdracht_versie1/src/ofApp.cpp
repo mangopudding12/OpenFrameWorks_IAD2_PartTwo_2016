@@ -16,16 +16,21 @@ void ofApp::setup()
 	begintekst.setLineHeight(18.0f);
 	begintekst.setLetterSpacing(1.037);
 
+	// Afbeeldingen in laden 
+	monsterR.load("monster_R.png");
+	monsterL.load("monster_L.png");
+
+
 
 	// Achtergrond nummer 1 aanmaken 
-	location_.set(ofGetWidth()/10,ofGetHeight()/9);
+	location_.set(ofGetWidth()/8.5,ofGetHeight()/6.7);
 
 	AchtergrondParticleSystem newachtergrond1;
 	newachtergrond1 = AchtergrondParticleSystem(location_);
 	AchtergrondSystem.push_back(newachtergrond1);
 
 	// Achtergrond nummer 2 aanmaken 
-	location_.set((ofGetWidth() / 10)*9, ofGetHeight() / 9);
+	location_.set((ofGetWidth() / 8.5)*7.5, ofGetHeight() / 6.7);
 
 	AchtergrondParticleSystem newachtergrond2;
 	newachtergrond2 = AchtergrondParticleSystem(location_);
@@ -90,6 +95,10 @@ void ofApp::draw()
 		ofSetColor(245, 58, 135);
 		begintekst.drawString("Laat een druppel vallen", ofGetWidth() / 7, 300);
 	}
+	else if (fase_code == 1) {
+		ofSetColor(245, 58, 135);
+		begintekst.drawString("Haal de druppel weg", ofGetWidth() / 5.5, 310);
+	}else {}
 
 	for (int i = 0; i < System->size(); i++)
 	{
@@ -102,6 +111,9 @@ void ofApp::draw()
 
 	if (aanuit == true)
 	{
+		monsterL.draw(-44, ofGetHeight() / 23);
+		monsterR.draw((ofGetWidth() / 8.3) * 7, ofGetHeight() / 23);
+
 		for (int i = 0; i < AchtergrondSystem.size(); i++)
 		{
 			AchtergrondSystem[i].run();
@@ -118,23 +130,19 @@ void ofApp::mousePressed(int x, int y, int button)
 		System->at(i).shatter();
 	}
 
+	// Verwijder tekst 2 na druppel weghalen
+	if (fase_code == 1)
+	{
+		fase_code = 2;
+		ofBackground(255);
+	}
+
+
 	// Zo gaat niet achtergrond particles uit wanneer je op muis klikt
 	// Eerst moet je de vierkante particle aanmaken
 	if (LegeVectorVullen == true)
 	{
 		aanuit = false;
-
-		// Morgen moet hier nog dingen aanpassen 
-		// zodat elke keer als je klikt er een nieuw achterparticle system 
-		// ontstaat tot een bepaalt aantal
-		// daarna wordt die gereset waardoor ??? de line ?? 
-		// of door collision met line of gewoon random ?? 
-		// Maak een int die steeds positie in location stond om zo te veranderen.
-		/*location_.set((ofGetWidth() / 10) * 7, ofGetHeight() / 7);
-
-		AchtergrondParticleSystem newachtergrond2;
-		newachtergrond2 = AchtergrondParticleSystem(location_);
-		AchtergrondSystem.push_back(newachtergrond2);*/
 	}
 
 	// De line mag weer bewegen als die geactiveerd is 
@@ -165,7 +173,7 @@ void ofApp::keyPressed(int key)
 	{
 		// Je kan er alleen meer particles bij maken als er onder de 500 particles zijn
 		// anders wordt mijn pc te traag en ontstaan er sneller errors. 
-		if (key == 'a' && System->at(0).Moreparticles->size() <= 500)
+		if (key == 'a' && System->at(0).Moreparticles->size() <= 400)
 		{
 			// Lijn staat stil tot dat je de muis hebt gedrukt.
 			line_bewegen_uit = true;

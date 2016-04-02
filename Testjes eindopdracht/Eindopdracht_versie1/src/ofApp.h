@@ -38,5 +38,9 @@ public:
 	ofTrueTypeFont  begintekst;
 
 	int getal;
+
+	// Afbeeldingen 
+	ofImage monsterR;
+	ofImage monsterL;
 	
 };

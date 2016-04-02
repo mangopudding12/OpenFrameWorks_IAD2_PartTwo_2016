@@ -19,6 +19,5 @@ public:
 	ofVec2f origin;
 	vector<AchtergrondParticle> AchtergrondParticles;
 
-
 private:
 };
