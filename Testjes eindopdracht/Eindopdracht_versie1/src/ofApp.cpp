@@ -6,6 +6,14 @@ void ofApp::setup()
 	ofBackground(255);
 	ofSetFrameRate(60);
 
+	// Arduino connection pc 
+	ofAddListener(myArduino.EInitialized, this, &ofApp::setupArduino);
+	arduino_opstarten = false;
+	myArduino.connect("COM3", 57600); // aan deze poort zit de arduino 
+	myArduino.sendFirmwareVersionRequest(); // Deze regel code niet weg halen anders werkt het niet meer
+
+
+
 	getal = 300; 
 
 	// Zet startscherm aan
@@ -46,10 +54,45 @@ void ofApp::setup()
 	
 }
 
+// ------------- Setup Arduino -------------------
+void ofApp::setupArduino(const int& version)
+{
+	ofRemoveListener(myArduino.EInitialized, this, &ofApp::setupArduino);
+
+	arduino_opstarten = true;
+
+	// Vertellen welke electronica op welke pin zit en wat het doet 
+	myArduino.sendAnalogPinReporting(0, ARD_ANALOG); // hier zit watersensor aan
+
+	ofAddListener(myArduino.EAnalogPinChanged, this, &ofApp::analogPinChanged);
+}
+
+// --------------- wanneer water op water sensor ------------------
+void ofApp::analogPinChanged(const int& pinNum)
+{
+
+	// Er ligt geen water op de sensor 
+	if (myArduino.getAnalog(0) > 900 )
+	{
+		water_op_sensor = false; 
+	}
+
+	// Er ligt wel water op de sensor 
+	if (myArduino.getAnalog(0) <= 300) 
+	{
+		water_op_sensor = true; 
+	}
+}
+
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
+	// Arduino 
+	myArduino.update();
+
+
+
 	if (aanuit == false)
 	{
 		if (getal > 0)
@@ -166,6 +209,8 @@ void ofApp::keyPressed(int key)
 		cout << linee.stopmoving << endl;
 		cout << "Hoeveel balletjes" << endl;
 		cout << System->at(0).Moreparticles->size() << endl;
+		cout << "watersensor" << endl;
+		cout << water_op_sensor << endl;
 	}
 
 	// Wanneer er wel iets in zit dan doe dit 
@@ -223,4 +268,9 @@ void ofApp::keyPressed(int key)
 void ofApp::keyReleased(int key)
 {
 
+}
+
+void ofApp::exit()
+{
+	myArduino.disconnect();
 }

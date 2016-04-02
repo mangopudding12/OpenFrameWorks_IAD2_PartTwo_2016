@@ -3,7 +3,7 @@
 #include "Line.h"
 #include "ParticleSystem.h"
 #include "Particle.h"
-#include "AchtergrondParticleSystem.h"
+#include "AchtergrondParticleSytem.h"
 
 class ofApp : public ofBaseApp {
 
@@ -13,10 +13,9 @@ public:
 	void setup();
 	void update();
 	void draw();
-	void mousePressed(int x, int y, int button);
-	void mouseReleased(int x, int y, int button);
 	void keyPressed(int key);
-	void keyReleased(int key);
+	void achtergrondaanmaken(); 
+	void waterreactie(); // creeërt particle vierkant en activeert move function  
 	void exit();
 
 	// Class line 
@@ -29,27 +28,32 @@ public:
 	// Voor de achtergrondParticle locatie vector
 	ofVec2f location_;
 
-	// int, float, boolean enzo. 
+	// int, float
 	int hoeveelheid;
+	int fase_code;
+	int kleurverandering;
+
+	// Boolean's 
 	bool aanuit = true;
 	bool line_bewegen_uit = false;
-	int fase_code;
-
 	bool LegeVectorVullen = false;
+	
+	// Lettertype
 	ofTrueTypeFont  begintekst;
-
-	int getal;
 
 	// Afbeeldingen 
 	ofImage monsterR;
 	ofImage monsterL;
 
 	// Arduino stuff 
-	bool arduino_opstarten; 
-	ofArduino myArduino; 
-	bool water_op_sensor = false; 
+	bool arduino_opstarten;
+	bool water_op_sensor = false;
+	ofArduino myArduino;
+	
 
 private:
-	void setupArduino(const int & version); 
-	void analogPinChanged(const int & pinNum); 
+
+	// Arduino functions 
+	void setupArduino(const int & version);
+	void analogPinChanged(const int & pinNum);
 };
